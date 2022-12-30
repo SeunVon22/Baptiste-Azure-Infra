@@ -7,6 +7,7 @@ resource_group = {
 }
 
 storage_account = {
+  name = "test1strg301222bh"
   access_tier = "standard"
   account_kind = "Storage"
   account_replication_type = "GRS"
@@ -22,7 +23,7 @@ storage_account = {
   enable_public_access = false
   firewall_bypass = [ "Metrics" ]
   is_hns_enabled = false
-  name = "test1strg301222bh"
+  
   shared_access_key_enabled = false
-  virtual_network_subnet_ids = [ "${subnet_id}" ]
+  virtual_network_subnet_ids = [ subnet_id ]
 }

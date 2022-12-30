@@ -4,7 +4,7 @@
 # }
 
 output "subnet_id" {
-  value = azurerm_subnet.ref_subent.id
+  value = [azurerm_subnet.ref_subent.id]
 }
 
 output "storage_account" {
