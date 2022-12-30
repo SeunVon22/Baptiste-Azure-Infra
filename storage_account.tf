@@ -1,3 +1,9 @@
+data "azurerm_subnet" "ref_subent" {
+  name = "subnet2"
+  virtual_network_name = "TestVNet"
+  resource_group_name = "Terrarsrc-RG"
+}
+
 resource "azurerm_storage_account" "main" {
   for_each = var.storage_account
     name                     = each.value.name
