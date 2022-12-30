@@ -21,7 +21,7 @@ variable "storage_account" {
      enable_firewall           = bool
      firewall_bypass           = set(string)
 
-     virtual_network_subnet_ids = list(string)
+     virtual_network_subnet_ids = set(string)
 
      blob_properties = object({
        delete_retention_days           = number
