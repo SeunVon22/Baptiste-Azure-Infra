@@ -4,7 +4,9 @@ data "azurerm_subnet" "ref_subent" {
   resource_group_name = "Terrarsrc-RG"
 }
 
+
 resource "azurerm_storage_account" "main" {
+  
   for_each = var.storage_account
     name                     = each.value.name
     resource_group_name      = var.resource_group.name
@@ -12,7 +14,6 @@ resource "azurerm_storage_account" "main" {
     account_tier             = each.value.account_tier
     account_replication_type = each.value.account_replication_type
 
-    tags                            = var.resource_group.tags
     account_kind                    = each.value.account_kind
     access_tier                     = each.value.access_tier
     shared_access_key_enabled       = each.value.shared_access_key_enabled
