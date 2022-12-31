@@ -30,5 +30,5 @@ network_config = {
   bypass = [ "Metrics" ]
   default_action = "Deny"
   ip_rules = [ "127.0.0.1" ]
-  virtual_network_subnet_ids = [ "${subnet_id}" ]
+  virtual_network_subnet_ids =  [subnet_id_out ]
 }

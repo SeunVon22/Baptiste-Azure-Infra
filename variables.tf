@@ -33,7 +33,7 @@ variable "network_config" {
   type = object({
     default_action             = string
     ip_rules                   = set(string)
-    virtual_network_subnet_ids = list(string)
+    virtual_network_subnet_ids = set(string)
     bypass                     = set(string)
   })
 }

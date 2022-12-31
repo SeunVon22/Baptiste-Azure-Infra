@@ -3,7 +3,7 @@
 #  value     = azurerm_storage_account.main
 # }
 
-output "subnet_id" {
+output "subnet_id_out" {
   value = azurerm_subnet.ref_subent.id
 }
 

@@ -47,6 +47,20 @@ resource "azurerm_storage_account" "main" {
     }
 }
 
+# The network rules for the storage accounts
+resource "azurerm_storage_account_network_rules" "network-Configuration" {
+    depends_on = [
+      azurerm_storage_account.main
+    ]
+    
+  storage_account_id = azurerm_storage_account.main.id
+  for_each = var.network_config
+  
+  default_action             = each.value.default_action
+  ip_rules                   = each.value.ip_rules
+  virtual_network_subnet_ids = each.value.virtual_network_subnet_ids
+  bypass                     = each.value.bypass
+}
 
 
 # ORIGINAL COPY
