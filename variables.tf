@@ -10,14 +10,12 @@ variable "storage-accounts" {
     resource_group_name = string
     location = string
     account_kind             = string
+    access_tier = string
     account_tier             = string
     account_replication_type = string
     shared_access_key_enabled = bool
     
     blob_properties = object({
-      delete_retention_policy = map(any)
-      
-      container_delete_retention_policy = map(any)
       
       versioning_enabled       = bool
       change_feed_enabled      = bool
@@ -28,12 +26,20 @@ variable "storage-accounts" {
   
 }
 
+variable "delete_retention_policy" {
+  type = map(number)
+}
+
+variable "container_delete_retention_policy" {
+  type = map(number)
+}
+
 variable "network_config" {
   description = "Allowed subnets"
   type = object({
     default_action             = string
     ip_rules                   = set(string)
-    virtual_network_subnet_ids = set(string)
+    
     bypass                     = set(string)
   })
 }

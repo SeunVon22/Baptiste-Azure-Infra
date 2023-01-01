@@ -4,11 +4,12 @@
 # }
 
 output "subnet_id_out" {
-  value = azurerm_subnet.ref_subent.id
+  value = data.azurerm_subnet.ref_subent.id
 }
-
+/*
 output "storage_account" {
   value = tomap({
     for k, accts in azurerm_storage_account.main : k => accts.id
   })
 }
+*/
