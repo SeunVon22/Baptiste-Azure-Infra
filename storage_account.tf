@@ -1,9 +1,10 @@
+/*
 data "azurerm_subnet" "ref_subent" {
   name = "default"
   virtual_network_name = "MyNuRG-vnet"
   resource_group_name = "MyNuRG"
 }
-
+*/
 resource "azurerm_resource_group" "rg-grp" {
   name     = var.resource_grp.name
   location = var.resource_grp.location
@@ -57,7 +58,7 @@ resource "azurerm_storage_account_network_rules" "network-Configuration" {
   
   default_action             = var.network_config.default_action
   ip_rules                   = var.network_config.ip_rules
-  virtual_network_subnet_ids = [data.azurerm_subnet.ref_subent.id]
+  virtual_network_subnet_ids = var.network_config.virtual_network_subnet_ids
   bypass                     = var.network_config.bypass
 }
 /*
