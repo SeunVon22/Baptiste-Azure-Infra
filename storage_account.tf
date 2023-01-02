@@ -3,12 +3,12 @@ data "azurerm_subnet" "ref_subent" {
   virtual_network_name = "MyNuRG-vnet"
   resource_group_name = "MyNuRG"
 }
-/*
+
 resource "azurerm_resource_group" "rg-grp" {
   name     = var.resource_grp.name
   location = var.resource_grp.location
 }
-*/
+
 resource "azurerm_storage_account" "main" {
   
     name                     = var.storage-accounts.name
