@@ -1,6 +1,6 @@
 resource_grp = {
   name = "storage_rsrc_grp" 
-  location = "East US"
+  location = "East US 2"
 }
 
 network_config = {
@@ -12,7 +12,7 @@ network_config = {
 
 storage-accounts = {
   account_kind = "Storage"
-  access_tier = "Hot"
+  access_tier = "Cool"
   account_replication_type = "LRS"
   account_tier = "Standard"
   blob_properties = {
@@ -22,10 +22,10 @@ storage-accounts = {
     last_access_time_enabled = false
     versioning_enabled = false
   }
-  location = "East US"
-  name = "storagebhsi311222"
-  resource_group_name = "value"
-  shared_access_key_enabled = false
+  location = "East US 2"
+  name = "storagebhsi020123"
+  
+  shared_access_key_enabled = true
 }
 
 delete_retention_policy = {

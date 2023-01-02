@@ -1,14 +1,18 @@
 data "azurerm_subnet" "ref_subent" {
-  name = "subnet2"
-  virtual_network_name = "TestVNet"
-  resource_group_name = "Terrarsrc-RG"
+  name = "default"
+  virtual_network_name = "MyNuRG-vnet"
+  resource_group_name = "MyNuRG"
 }
 
+resource "azurerm_resource_group" "rg-grp" {
+  name     = var.resource_grp.name
+  location = var.resource_grp.location
+}
 
 resource "azurerm_storage_account" "main" {
   
     name                     = var.storage-accounts.name
-    resource_group_name      = var.resource_grp.name
+    resource_group_name      = azurerm_resource_group.rg-grp.name
     location                 = var.resource_grp.location
     account_tier             = var.storage-accounts.account_tier
     account_replication_type = var.storage-accounts.account_replication_type
@@ -56,13 +60,13 @@ resource "azurerm_storage_account_network_rules" "network-Configuration" {
   virtual_network_subnet_ids = [data.azurerm_subnet.ref_subent.id]
   bypass                     = var.network_config.bypass
 }
-
+/*
 resource "azurerm_storage_container" "containe1" {
   name                  = "vhds"
   storage_account_name  = azurerm_storage_account.main.name
   container_access_type = "private"
 }
-
+*/
 
 # ORIGINAL COPY
 

@@ -7,7 +7,7 @@ variable "storage-accounts" {
   description = "The values for the storage accounts"
   type = object({
     name = string
-    resource_group_name = string
+    
     location = string
     account_kind             = string
     access_tier = string
